@@ -1,0 +1,14 @@
+---
+import { pagos } from '../data/pagos';
+---
+<section style="background:#F4F6F9;padding:60px 24px;border-top:1px solid #E6EAEF;border-bottom:1px solid #E6EAEF">
+  <div style="max-width:1100px;margin:0 auto;text-align:center">
+    <h3 style="color:#0B2A4A;font-size:22px;font-weight:800">Medios de pago aceptados</h3>
+    <p style="color:#5B6875;font-size:15px;margin-top:10px">Financiá tu sistema de seguridad con todas las tarjetas de crédito y débito.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px">
+      {pagos.map((p) => (
+        <span style="background:#fff;border:1px solid #E1E6EC;color:#0B2A4A;font-weight:600;font-size:14px;padding:11px 18px;border-radius:8px">{p}</span>
+      ))}
+    </div>
+  </div>
+</section>

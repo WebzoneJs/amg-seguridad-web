@@ -1,0 +1,122 @@
+---
+import { BUSINESS, wa, MAP_LINK, MAP_EMBED } from '../consts';
+const waPresupuesto = wa('Hola AMG Seguridad, quiero solicitar un presupuesto');
+const serviceOptions = [
+  'Alarmas monitoreadas',
+  'Alarmas sin monitoreo',
+  'Cámaras de seguridad',
+  'Control de acceso',
+  'Portero inteligente',
+  'Cerco perimetral',
+  'Servicio técnico',
+];
+const inputStyle =
+  'width:100%;padding:12px 14px;border:1px solid #D8DEE6;border-radius:9px;font-size:15px;color:#16202B;outline:none';
+---
+<section id="contacto" style="background:#0B2A4A;padding:88px 24px;position:relative">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 50px">
+      <div style="color:#FFB985;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px">Contacto</div>
+      <h2 style="color:#fff;font-size:clamp(28px,3.4vw,40px);font-weight:800">Solicitá tu presupuesto sin cargo</h2>
+      <p style="color:#AEBFD3;font-size:16.5px;line-height:1.65;margin-top:18px">Estamos en Villa María para asesorarte. Escribinos por WhatsApp o dejanos tus datos y te contactamos.</p>
+    </div>
+    <div class="amg-stack" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <!-- info + map -->
+      <div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <a href={MAP_LINK} target="_blank" rel="noopener" style="display:flex;gap:15px;align-items:flex-start;color:inherit">
+            <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA6A1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div style="color:#fff;font-weight:700;font-size:15px">Dirección</div><div style="color:#AEBFD3;font-size:14.5px;line-height:1.5;margin-top:3px">Bartolomé Mitre 874<br>Villa María, Prov. de Córdoba, Argentina</div></div>
+          </a>
+          <a href={`tel:${BUSINESS.phoneTel}`} style="display:flex;gap:15px;align-items:flex-start;color:inherit">
+            <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA6A1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div style="color:#fff;font-weight:700;font-size:15px">Teléfono</div><div style="color:#AEBFD3;font-size:14.5px;margin-top:3px">{BUSINESS.phoneDisplay}</div></div>
+          </a>
+          <a href={`https://wa.me/${BUSINESS.whatsappNumber}`} target="_blank" rel="noopener" style="display:flex;gap:15px;align-items:flex-start;color:inherit">
+            <div style="width:44px;height:44px;border-radius:10px;background:rgba(37,211,102,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></div>
+            <div><div style="color:#fff;font-weight:700;font-size:15px">WhatsApp</div><div style="color:#AEBFD3;font-size:14.5px;margin-top:3px">{BUSINESS.whatsappDisplay}</div></div>
+          </a>
+          <div style="display:flex;gap:15px;align-items:flex-start">
+            <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA6A1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><div style="color:#fff;font-weight:700;font-size:15px">Horario de atención</div><div style="color:#7E93AC;font-size:13.5px;margin-top:3px;font-style:italic">[Completar horario de atención]</div><div style="color:#AEBFD3;font-size:13.5px;margin-top:2px">Monitoreo activo 24 hs · 365 días</div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:26px">
+          <a href={BUSINESS.facebook} target="_blank" rel="noopener" aria-label="Facebook de AMG Seguridad" style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href={BUSINESS.instagram} target="_blank" rel="noopener" aria-label="Instagram de AMG Seguridad" style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+        <div style="margin-top:26px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)">
+          <iframe title="Ubicación de AMG Seguridad en Villa María, Córdoba" src={MAP_EMBED} width="100%" height="240" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <!-- form -->
+      <div style="background:#fff;border-radius:16px;padding:34px">
+        <div id="amg-form-sent" hidden style="text-align:center;padding:40px 10px">
+          <div style="width:64px;height:64px;border-radius:50%;background:#E7F8EE;display:flex;align-items:center;justify-content:center;margin:0 auto 20px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3 style="color:#0B2A4A;font-size:22px;font-weight:800">¡Te llevamos a WhatsApp!</h3>
+          <p style="color:#5B6875;font-size:15px;line-height:1.6;margin-top:12px">Abrimos WhatsApp con tu consulta cargada. Solo tenés que tocar enviar y un asesor de AMG Seguridad te responderá a la brevedad.</p>
+          <a id="amg-form-reopen" href={waPresupuesto} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;margin-top:20px;background:#25D366;color:#08331B;font-weight:700;font-size:15px;padding:13px 22px;border-radius:9px">Abrir WhatsApp de nuevo</a>
+        </div>
+        <form id="amg-form" data-wa={BUSINESS.whatsappNumber}>
+          <h3 style="color:#0B2A4A;font-size:20px;font-weight:800;margin-bottom:6px">Dejanos tu consulta</h3>
+          <p style="color:#5B6875;font-size:14px;margin-bottom:22px">Completá el formulario y te asesoramos sin cargo.</p>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div>
+              <label for="amg-nombre" style="display:block;font-size:13px;font-weight:600;color:#0B2A4A;margin-bottom:6px">Nombre y apellido</label>
+              <input id="amg-nombre" name="nombre" class="amg-input" type="text" required placeholder="Tu nombre" style={inputStyle} />
+            </div>
+            <div class="amg-form2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+              <div>
+                <label for="amg-tel" style="display:block;font-size:13px;font-weight:600;color:#0B2A4A;margin-bottom:6px">Teléfono</label>
+                <input id="amg-tel" name="tel" class="amg-input" type="tel" required placeholder="Cel. / WhatsApp" style={inputStyle} />
+              </div>
+              <div>
+                <label for="amg-email" style="display:block;font-size:13px;font-weight:600;color:#0B2A4A;margin-bottom:6px">Email</label>
+                <input id="amg-email" name="email" class="amg-input" type="email" placeholder="tucorreo@email.com" style={inputStyle} />
+              </div>
+            </div>
+            <div>
+              <label for="amg-servicio" style="display:block;font-size:13px;font-weight:600;color:#0B2A4A;margin-bottom:6px">¿Qué servicio te interesa?</label>
+              <select id="amg-servicio" name="servicio" class="amg-input" style={`${inputStyle};background:#fff`}>
+                {serviceOptions.map((o) => <option>{o}</option>)}
+              </select>
+            </div>
+            <div>
+              <label for="amg-mensaje" style="display:block;font-size:13px;font-weight:600;color:#0B2A4A;margin-bottom:6px">Mensaje</label>
+              <textarea id="amg-mensaje" name="mensaje" class="amg-input" rows="3" placeholder="Contanos qué necesitás proteger" style={`${inputStyle};resize:vertical`}></textarea>
+            </div>
+            <button type="submit" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#08331B;font-weight:700;font-size:16px;padding:15px;border:none;border-radius:10px;cursor:pointer;box-shadow:0 8px 22px rgba(37,211,102,.3)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4zm4.4 9.6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.2 0-.3.1-.5l.4-.4.2-.4v-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3A2.8 2.8 0 0 0 7 9.4a4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c2 .8 2 .5 2.4.5a2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg>Enviar consulta por WhatsApp</button>
+            <p style="display:flex;align-items:center;justify-content:center;gap:7px;text-align:center;font-size:12.5px;color:#8894A2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Respuesta en minutos · Presupuesto y asesoramiento sin cargo</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('amg-form') as HTMLFormElement | null;
+  const sent = document.getElementById('amg-form-sent');
+  const reopen = document.getElementById('amg-form-reopen') as HTMLAnchorElement | null;
+
+  if (form && sent && reopen) {
+    const wa = form.dataset.wa || '';
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const get = (k: string) => String(data.get(k) || '').trim();
+      let txt = 'Hola AMG Seguridad, quiero solicitar un presupuesto.\n\n';
+      if (get('nombre')) txt += 'Nombre: ' + get('nombre') + '\n';
+      if (get('tel')) txt += 'Teléfono: ' + get('tel') + '\n';
+      if (get('email')) txt += 'Email: ' + get('email') + '\n';
+      if (get('servicio')) txt += 'Servicio: ' + get('servicio') + '\n';
+      if (get('mensaje')) txt += 'Mensaje: ' + get('mensaje') + '\n';
+      const url = 'https://wa.me/' + wa + '?text=' + encodeURIComponent(txt);
+      reopen.href = url;
+      window.open(url, '_blank', 'noopener');
+      form.hidden = true;
+      sent.hidden = false;
+    });
+  }
+</script>

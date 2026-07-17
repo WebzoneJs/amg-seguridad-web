@@ -1,0 +1,59 @@
+---
+// Números finales renderizados en el HTML (visibles sin JS y para SEO).
+// El JS anima el conteo desde 0 al entrar en viewport.
+const stats = [
+  { value: 1632, label: 'Alarmas monitoreadas', suffix: '' },
+  { value: 3921, label: 'Cámaras instaladas', suffix: '' },
+  { value: 22, label: 'Años de experiencia', suffix: '+' },
+];
+const fmt = (n: number) => n.toLocaleString('es-AR');
+---
+<section id="amg-stats" style="background:#0B2A4A;padding:70px 24px;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(234,106,30,.14),transparent 55%)"></div>
+  <div style="position:relative;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;text-align:center">
+    {stats.map((s, i) => (
+      <div style={i === 1 ? 'border-left:1px solid rgba(255,255,255,.12);border-right:1px solid rgba(255,255,255,.12)' : ''}>
+        <div style="font-family:Manrope;font-weight:800;font-size:clamp(40px,5vw,60px);color:#fff;line-height:1"><span class="amg-stat-num" data-target={s.value}>{fmt(s.value)}</span>{s.suffix && <span style="color:#EA6A1E">{s.suffix}</span>}</div>
+        <div style="color:#8FA3BC;font-size:14px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:10px">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById('amg-stats');
+  const nums = document.querySelectorAll<HTMLElement>('.amg-stat-num');
+  const fmt = (n: number) => n.toLocaleString('es-AR');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (section && nums.length && !reduce) {
+    // Empezamos en 0 sólo si vamos a animar.
+    nums.forEach((n) => (n.textContent = '0'));
+    const animate = () => {
+      const dur = 1500;
+      const start = performance.now();
+      const step = (now: number) => {
+        const t = Math.min(1, (now - start) / dur);
+        const e = 1 - Math.pow(1 - t, 3);
+        nums.forEach((n) => {
+          const target = Number(n.dataset.target || '0');
+          n.textContent = fmt(Math.round(target * e));
+        });
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate();
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    io.observe(section);
+  }
+</script>

@@ -1,0 +1,19 @@
+---
+import { clients } from '../data/clients';
+---
+<section id="clientes" style="background:#fff;padding:88px 24px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 48px">
+      <div style="color:#EA6A1E;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px">Nuestros clientes</div>
+      <h2 style="color:#0B2A4A;font-size:clamp(28px,3.4vw,40px);font-weight:800">Empresas e instituciones que confían en nosotros</h2>
+      <p style="color:#5B6875;font-size:16.5px;line-height:1.65;margin-top:18px">Comercios, bancos e instituciones de Villa María y la región eligen a AMG Seguridad para proteger lo que más importa.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px">
+      {clients.map((c) => (
+        <div class="amg-client" style="border:1px solid #EEF1F5;border-radius:12px;background:#fff;height:96px;display:flex;align-items:center;justify-content:center;padding:16px">
+          <img src={c.src} alt={c.alt} loading="lazy" style="max-height:56px;max-width:100%;width:auto;object-fit:contain" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

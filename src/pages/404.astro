@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { BUSINESS, wa } from '../consts';
+const waConsulta = wa('Hola AMG Seguridad, quiero hacer una consulta');
+---
+<Base title="Página no encontrada | AMG Seguridad Villa María">
+  <section style="min-height:70vh;display:flex;align-items:center;justify-content:center;background:#0B2A4A;padding:80px 24px;text-align:center">
+    <div style="max-width:560px">
+      <div style="font-family:Manrope;font-weight:800;font-size:clamp(60px,12vw,110px);color:#EA6A1E;line-height:1">404</div>
+      <h1 style="color:#fff;font-size:clamp(24px,3.4vw,34px);font-weight:800;margin-top:8px">No encontramos esta página</h1>
+      <p style="color:#AEBFD3;font-size:16.5px;line-height:1.6;margin-top:16px">Es posible que el enlace esté roto o que la página haya sido movida. Volvé al inicio o escribinos por WhatsApp.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:32px">
+        <a href="/" style="display:inline-flex;align-items:center;gap:9px;background:#EA6A1E;color:#fff;font-weight:700;font-size:16px;padding:15px 26px;border-radius:10px">Volver al inicio</a>
+        <a href={waConsulta} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#08331B;font-weight:700;font-size:16px;padding:15px 26px;border-radius:10px">Escribir por WhatsApp</a>
+      </div>
+      <p style="color:#7E93AC;font-size:14px;margin-top:26px">AMG Seguridad · {BUSINESS.streetAddress}, Villa María, Córdoba · {BUSINESS.phoneDisplay}</p>
+    </div>
+  </section>
+</Base>
