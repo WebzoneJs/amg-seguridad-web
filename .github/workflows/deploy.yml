@@ -1,0 +1,46 @@
+name: Build y Deploy a Hostinger
+
+# Se ejecuta en cada push a main (y se puede lanzar a mano desde la pestaña Actions).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Evita despliegues solapados si se hacen varios push seguidos.
+concurrency:
+  group: deploy-produccion
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar sitio (genera dist/)
+        run: npm run build
+
+      - name: Subir dist/ a Hostinger por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Contenido a subir (la barra final es obligatoria).
+          local-dir: ./dist/
+          # Carpeta destino en Hostinger. Para el dominio principal suele ser
+          # /public_html/. Si el sitio va en un subdominio o dominio adicional,
+          # cambiá esta ruta (ej: /domains/amgseguridad.com.ar/public_html/).
+          server-dir: /public_html/
+          # Borra del servidor archivos que ya no existen en el build.
+          dangerous-clean-slate: false
