@@ -36,6 +36,11 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          # Hostinger bloquea FTP plano desde IPs de datacenter: usamos FTPS (TLS).
+          protocol: ftps
+          security: loose
+          timeout: 60000
           # Contenido a subir (la barra final es obligatoria).
           local-dir: ./dist/
           # Carpeta destino en Hostinger. Para el dominio principal suele ser
