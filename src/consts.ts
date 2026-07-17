@@ -28,11 +28,12 @@ export const BUSINESS = {
   facebook: 'https://www.facebook.com/AMGSEGURIDAD',
   instagram: 'https://www.instagram.com/amg.seguridad/',
 
-  // Imágenes
-  logo: 'https://amgseguridad.com.ar/wp-content/uploads/2022/09/logo-amg-ok.jpg',
-  ogImage: 'https://amgseguridad.com.ar/wp-content/uploads/2022/09/41.jpg',
-  heroImage: 'https://amgseguridad.com.ar/wp-content/uploads/2022/09/41.jpg',
-  marcaImage: 'https://amgseguridad.com.ar/wp-content/uploads/2022/09/marca.jpeg',
+  // Imágenes (locales, servidas desde /public/img — sin dependencia del WP viejo).
+  // ogImage usa URL absoluta porque Open Graph la requiere.
+  logo: '/img/logo-amg.jpg',
+  ogImage: `${SITE_URL}/img/hero.jpg`,
+  heroImage: '/img/hero.jpg',
+  marcaImage: '/img/marca.jpeg',
 } as const;
 
 // Mapa de Google (embed + link)
