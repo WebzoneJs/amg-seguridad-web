@@ -17,6 +17,7 @@ import Footer from '../components/Footer.astro';
 import FloatingWhatsapp from '../components/FloatingWhatsapp.astro';
 ---
 <Base>
+  <link slot="head" rel="preload" as="image" href="/img/hero.jpg" fetchpriority="high" />
   <TopBar />
   <Header />
   <Hero />
