@@ -21,8 +21,11 @@ export const BUSINESS = {
   // Contacto
   phoneDisplay: '(0353) 4535544',
   phoneTel: '+543534535544',
-  whatsappDisplay: '353 427-0504',
-  whatsappNumber: '5493534270504',
+  whatsappDisplay: '353 427-0506',
+  whatsappNumber: '5493534270506',
+
+  // Horario de atención
+  hoursDisplay: 'Lunes a viernes de 8 a 16 hs',
 
   // Redes
   facebook: 'https://www.facebook.com/AMGSEGURIDAD',

@@ -51,8 +51,7 @@ public/                   # robots.txt, favicons, manifest
 - **Servicios / Clientes / FAQs / Medios de pago** → `src/data/`.
 - **Estadísticas** (alarmas, cámaras, años) → `src/components/Stats.astro`.
 
-> ⚠️ Pendiente del cliente: completar el **horario de atención** (marcado como
-> `[Completar horario de atención]` en `src/components/Contact.astro`).
+- **Horario de atención** y **WhatsApp** → `src/consts.ts` (`hoursDisplay`, `whatsappNumber`).
 
 ## Deploy
 
