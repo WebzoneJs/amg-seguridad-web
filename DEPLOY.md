@@ -130,9 +130,13 @@ Cuando el sitio esté aprobado en el dominio temporal:
    `amgseguridad.com.ar` (Dominios → conectar dominio).
 2. Apuntá el DNS del dominio a Hostinger (nameservers o registro A a la IP).
 3. Activá **SSL** (Hostinger lo hace gratis con Let's Encrypt).
-4. No hay que tocar el código: las imágenes usan rutas relativas (`/img/...`).
-   El `canonical` y el `og:image` ya apuntan a `https://amgseguridad.com.ar`
-   (definido en `src/consts.ts` → `SITE_URL`).
+4. **Cambiar el origen** a `https://amgseguridad.com.ar` en estos 3 lugares
+   (hoy apuntan al dominio temporal para que el preview/OG funcione):
+   - `src/consts.ts` → `SITE_URL`
+   - `astro.config.mjs` → `SITE_URL`
+   - `public/robots.txt` → línea `Sitemap:`
+   Con eso, `canonical`, `og:image` (`/img/og.jpg`) y el sitemap pasan al
+   dominio real. Las imágenes usan rutas relativas, no hay que tocarlas.
 
 ---
 

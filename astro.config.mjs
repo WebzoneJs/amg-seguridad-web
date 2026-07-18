@@ -2,8 +2,10 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Dominio de producción — usado para canonical, Open Graph y sitemap.
-export const SITE_URL = 'https://amgseguridad.com.ar';
+// Origen actual del sitio (dominio temporal). Usado para canonical y sitemap.
+// ⚠️ Al conectar el dominio real, cambiar por 'https://amgseguridad.com.ar'
+//    (también en src/consts.ts y public/robots.txt). Ver DEPLOY.md.
+export const SITE_URL = 'https://azure-ant-447026.hostingersite.com';
 
 // https://astro.build/config
 export default defineConfig({

@@ -24,18 +24,33 @@ const waPresupuesto = wa('Hola AMG Seguridad, quiero solicitar un presupuesto');
       <a href={waPresupuesto} target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#EA6A1E;color:#fff;font-weight:700;font-size:14.5px;padding:12px 20px;border-radius:8px;box-shadow:0 6px 16px rgba(234,106,30,.3)">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4zm4.4 9.6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.2 0-.3.1-.5l.4-.4.2-.4v-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3A2.8 2.8 0 0 0 7 9.4a4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c2 .8 2 .5 2.4.5a2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg>Solicitar presupuesto</a>
     </div>
-    <button id="amg-menu-btn" class="amg-mob" aria-label="Abrir menú" aria-expanded="false" aria-controls="amg-mobile-menu" style="background:none;border:1px solid #E6EAEF;border-radius:8px;padding:9px;cursor:pointer;display:flex">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B2A4A" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
+    <div class="amg-mob" style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+      <a href="#contacto" aria-label="Solicitar presupuesto" style="display:inline-flex;align-items:center;background:#EA6A1E;color:#fff;font-weight:700;font-size:12.5px;padding:9px 12px;border-radius:8px;white-space:nowrap;box-shadow:0 4px 12px rgba(234,106,30,.28)">Solicitar presupuesto</a>
+      <button id="amg-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="amg-mobile-menu" style="background:none;border:1px solid #E6EAEF;border-radius:8px;padding:9px;cursor:pointer;display:flex">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B2A4A" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
   </div>
   <!-- mobile menu -->
-  <div id="amg-mobile-menu" class="amg-mob" hidden style="border-top:1px solid #E6EAEF;padding:8px 24px 18px;display:flex;flex-direction:column">
+  <div id="amg-mobile-menu" class="amg-mob amg-mobmenu" hidden style="border-top:1px solid #E6EAEF;padding:8px 24px 18px">
     {navItems.map((i, idx) => (
       <a href={i.href} data-close-menu style={`color:#16202B;font-weight:600;padding:12px 0;${idx < navItems.length - 1 ? 'border-bottom:1px solid #F0F2F5' : ''}`}>{i.label}</a>
     ))}
     <a href={waPresupuesto} target="_blank" rel="noopener" style="margin-top:14px;text-align:center;background:#EA6A1E;color:#fff;font-weight:700;padding:13px;border-radius:8px">Solicitar presupuesto</a>
   </div>
 </header>
+
+<style>
+  /* El menú mobile arranca cerrado ([hidden] => display:none) y sólo pasa a
+     flex cuando se abre. Evita el bug de que aparezca abierto por un
+     display:flex inline pisando el atributo hidden. */
+  .amg-mobmenu {
+    flex-direction: column;
+  }
+  .amg-mobmenu:not([hidden]) {
+    display: flex;
+  }
+</style>
 
 <script>
   const btn = document.getElementById('amg-menu-btn');
