@@ -6,7 +6,7 @@
 // Origen donde vive el sitio HOY. Usado para canonical, Open Graph y sitemap.
 // ⚠️ Al conectar el dominio real, cambiar por 'https://amgseguridad.com.ar'
 //    (también en astro.config.mjs y public/robots.txt). Ver DEPLOY.md.
-export const SITE_URL = 'https://azure-ant-447026.hostingersite.com';
+export const SITE_URL = 'https://amgseguridad.com.ar';
 
 export const BUSINESS = {
   name: 'AMG Seguridad',
