@@ -60,7 +60,7 @@ export const SEO = {
   description:
     'AMG Seguridad: alarmas monitoreadas, cámaras de seguridad HD y control de acceso en Villa María, Córdoba. Empresa homologada con marca registrada, activa desde 2004. Presupuesto sin cargo.',
   keywords:
-    'alarmas monitoreadas Villa María, cámaras de seguridad Villa María, control de acceso Villa María Córdoba, instalación de alarmas Villa María, seguridad electrónica Villa María',
+    'alarmas monitoreadas Villa María, cámaras de seguridad Villa María, control de acceso Villa María Córdoba, instalación de alarmas Villa María, seguridad electrónica Villa María, cerco eléctrico Villa María, alarmas Ajax, alarmas DSC, cámaras Hikvision, cámaras Dahua, cámaras Imou, Intelbras Villa María',
   ogTitle: 'AMG Seguridad | Alarmas y Cámaras Monitoreadas en Villa María',
   ogDescription:
     'Seguridad monitoreada las 24 hs los 365 días del año en Villa María y la región.',

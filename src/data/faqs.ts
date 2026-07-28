@@ -29,4 +29,8 @@ export const faqs: Faq[] = [
     q: '¿Hacen servicio técnico de alarmas y cámaras existentes?',
     a: 'Sí. Realizamos mantenimiento, reparación y actualización de alarmas y cámaras de distintas marcas, incluso si no fueron instaladas por nosotros.',
   },
+  {
+    q: '¿Con qué marcas de equipos trabajan?',
+    a: 'Instalamos equipamiento de primeras marcas del mercado: alarmas Ajax y DSC, cámaras de seguridad Hikvision, Dahua e Imou, y productos Intelbras. Elegimos la tecnología que mejor se adapta a cada hogar o comercio en Villa María y la región.',
+  },
 ];
