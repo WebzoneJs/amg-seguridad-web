@@ -18,7 +18,9 @@ export const BUSINESS = {
   countryName: 'Argentina',
   postalCode: 'X5900',
   streetAddress: 'Bartolomé Mitre 874',
-  geo: { lat: -32.4103, lng: -63.24 },
+  // Coordenadas exactas de Bartolomé Mitre 874 (Bº Sarmiento, Villa María).
+  // ⚠️ No aproximar: con valores cercanos al centro el pin cae del lado de Villa Nueva.
+  geo: { lat: -32.4212324, lng: -63.2389514 },
   priceRange: '$$',
 
   // Contacto
@@ -42,11 +44,14 @@ export const BUSINESS = {
   marcaImage: '/img/marca.jpeg',
 } as const;
 
-// Mapa de Google (embed + link)
+// Mapa de Google (embed + link).
+// La query incluye el NOMBRE del negocio a propósito: así Google resuelve la
+// ficha de AMG Seguridad y el pin cae en Bartolomé Mitre 874. Buscando sólo la
+// dirección (con o sin CP X5900) el geocoder la manda a Villa Nueva.
 export const MAP_QUERY =
-  'Bartolom%C3%A9%20Mitre%20874%2C%20X5900%20Villa%20Mar%C3%ADa%2C%20C%C3%B3rdoba';
+  'AMG%20Seguridad%2C%20Bartolom%C3%A9%20Mitre%20874%2C%20Villa%20Mar%C3%ADa%2C%20C%C3%B3rdoba';
 export const MAP_LINK = `https://maps.google.com/maps?q=${MAP_QUERY}`;
-export const MAP_EMBED = `https://maps.google.com/maps?q=${MAP_QUERY}&t=m&z=15&output=embed&iwloc=near`;
+export const MAP_EMBED = `https://maps.google.com/maps?q=${MAP_QUERY}&t=m&z=16&output=embed&iwloc=near`;
 
 // Helper para armar links de WhatsApp con mensaje precargado
 export function wa(text: string): string {
